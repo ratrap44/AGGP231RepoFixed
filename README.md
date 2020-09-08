@@ -1,2 +1,2 @@
 # AGGP231RepoFixed
-My Personal class repositopry
+My Personal class repository
