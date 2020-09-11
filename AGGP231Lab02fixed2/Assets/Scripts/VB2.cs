@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
-public class VirtualButton : MonoBehaviour, IVirtualButtonEventHandler
+public class VB2 : MonoBehaviour, IVirtualButtonEventHandler
 {
     public GameObject VB;
     public GameObject Sphere;
-    public Color1 Colormanager;
-    
+    public Color2 Colormanager;
+
     void start()
     {
         VB.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
