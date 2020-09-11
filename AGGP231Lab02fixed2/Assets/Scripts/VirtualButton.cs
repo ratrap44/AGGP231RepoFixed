@@ -18,16 +18,18 @@ public class VirtualButton : MonoBehaviour, IVirtualButtonEventHandler
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
+        Debug.Log("VB pressed");
         Colormanager.start();
         Colormanager.setcolor();
-        Debug.Log("VB pressed");
+        
 
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
+        Debug.Log("VB released");
         Colormanager.back();
         //material.color = Color.black;
-        Debug.Log("VB released");
+        
     }
 }
