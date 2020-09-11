@@ -4,8 +4,9 @@ using Vuforia;
 public class InstructorVB : MonoBehaviour, IVirtualButtonEventHandler
 {
 
-	public GameObject cube;
+	public GameObject sphere;
 	public GameObject virtualButton;
+	public Color1 Colormanager;
 	/// <summary>
 	/// Called when the scene is loaded
 	/// </summary>
@@ -23,6 +24,8 @@ public class InstructorVB : MonoBehaviour, IVirtualButtonEventHandler
 	{
 
 		Debug.Log("button Pressed");
+		Colormanager.start();
+		Colormanager.setcolor();
 
 	}
 
@@ -31,7 +34,7 @@ public class InstructorVB : MonoBehaviour, IVirtualButtonEventHandler
 	/// </summary>
 	public void OnButtonReleased(VirtualButtonBehaviour vb)
 	{
-
+		Colormanager.back();
 		Debug.Log("button Released");
 	}
 }
