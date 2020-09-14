@@ -8,7 +8,7 @@ public class VirtualButton : MonoBehaviour, IVirtualButtonEventHandler
     public GameObject Sphere;
     public Color1 Colormanager;
     
-    void start()
+    void Start()
     {
         VB.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
         //material = GetComponent<Renderer>().material;
