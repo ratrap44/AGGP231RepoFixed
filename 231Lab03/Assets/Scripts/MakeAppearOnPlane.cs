@@ -15,6 +15,7 @@ public class MakeAppearOnPlane : MonoBehaviour
     [SerializeField]
     [Tooltip("A transform which should be made to appear to be at the touch point.")]
     Transform m_Content;
+    bool swit = true;
 
     /// <summary>
     /// A transform which should be made to appear to be at the touch point.
@@ -49,22 +50,42 @@ public class MakeAppearOnPlane : MonoBehaviour
         m_RaycastManager = GetComponent<ARRaycastManager>();
     }
 
+   public void turnoff()
+    {
+        swit = false;
+
+    }
+
+    public void turnon()
+    {
+        swit = true;
+    }
+
     void Update()
     {
-        if (Input.touchCount == 0 || m_Content == null)
-            return;
-
-        var touch = Input.GetTouch(0);
-
-        if (m_RaycastManager.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
+        if (swit == true)
         {
-            // Raycast hits are sorted by distance, so the first one
-            // will be the closest hit.
-            var hitPose = s_Hits[0].pose;
+            if (Input.touchCount == 0 || m_Content == null)
+                return;
 
-            // This does not move the content; instead, it moves and orients the ARSessionOrigin
-            // such that the content appears to be at the raycast hit position.
-            m_SessionOrigin.MakeContentAppearAt(content, hitPose.position, m_Rotation);
+            var touch = Input.GetTouch(0);
+
+            if (m_RaycastManager.Raycast(touch.position, s_Hits, TrackableType.PlaneWithinPolygon))
+            {
+                // Raycast hits are sorted by distance, so the first one
+                // will be the closest hit.
+                var hitPose = s_Hits[0].pose;
+
+                // This does not move the content; instead, it moves and orients the ARSessionOrigin
+                // such that the content appears to be at the raycast hit position.
+                m_SessionOrigin.MakeContentAppearAt(content, hitPose.position, m_Rotation);
+            }
+        }
+        if (swit == false)
+        {
+
+           
+
         }
     }
 
