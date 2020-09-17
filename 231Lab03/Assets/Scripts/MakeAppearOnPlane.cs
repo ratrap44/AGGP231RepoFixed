@@ -50,21 +50,11 @@ public class MakeAppearOnPlane : MonoBehaviour
         m_RaycastManager = GetComponent<ARRaycastManager>();
     }
 
-   public void turnoff()
-    {
-        swit = false;
 
-    }
 
-    public void turnon()
+    public void Update()
     {
-        swit = true;
-    }
-
-    void Update()
-    {
-        if (swit == true)
-        {
+       
             if (Input.touchCount == 0 || m_Content == null)
                 return;
 
@@ -80,13 +70,8 @@ public class MakeAppearOnPlane : MonoBehaviour
                 // such that the content appears to be at the raycast hit position.
                 m_SessionOrigin.MakeContentAppearAt(content, hitPose.position, m_Rotation);
             }
-        }
-        if (swit == false)
-        {
+        
 
-           
-
-        }
     }
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
